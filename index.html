@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordkorea - Demokratische Volksrepublik Korea</title>
+    <style>
+        @page {
+            size: A3;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 297mm;
+            height: 420mm;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            padding: 15mm;
+            color: #333;
+        }
+
+        .poster {
+            width: 100%;
+            height: 100%;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ED1C24 0%, #C41E3A 100%);
+            color: white;
+            padding: 20mm 15mm;
+            text-align: center;
+            border-bottom: 8px solid #0047AB;
+        }
+
+        .header h1 {
+            font-size: 48pt;
+            font-weight: bold;
+            margin-bottom: 8mm;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 20pt;
+            font-weight: 300;
+            margin-bottom: 3mm;
+        }
+
+        .header .korean {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-top: 3mm;
+        }
+
+        .content {
+            flex: 1;
+            padding: 12mm 15mm;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10mm;
+            overflow: hidden;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border-left: 5px solid #ED1C24;
+            padding: 8mm;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #ED1C24;
+            font-size: 18pt;
+            margin-bottom: 5mm;
+            padding-bottom: 3mm;
+            border-bottom: 2px solid #0047AB;
+        }
+
+        .section h3 {
+            color: #0047AB;
+            font-size: 14pt;
+            margin-top: 4mm;
+            margin-bottom: 2mm;
+        }
+
+        .section p, .section ul {
+            font-size: 10pt;
+            line-height: 1.6;
+            margin-bottom: 3mm;
+        }
+
+        .section ul {
+            list-style-position: inside;
+            padding-left: 3mm;
+        }
+
+        .section li {
+            margin-bottom: 2mm;
+        }
+
+        .highlight-box {
+            background: #fff;
+            border: 2px solid #ED1C24;
+            padding: 4mm;
+            margin: 3mm 0;
+            border-radius: 3px;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3mm;
+            margin-top: 3mm;
+        }
+
+        .fact-item {
+            background: white;
+            padding: 3mm;
+            border-radius: 3px;
+            border-left: 3px solid #0047AB;
+        }
+
+        .fact-label {
+            font-weight: bold;
+            color: #ED1C24;
+            font-size: 9pt;
+        }
+
+        .fact-value {
+            color: #333;
+            font-size: 10pt;
+            margin-top: 1mm;
+        }
+
+        .flag-colors {
+            display: flex;
+            height: 8mm;
+            margin: 3mm 0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .flag-colors div {
+            flex: 1;
+        }
+
+        .color-red { background: #ED1C24; }
+        .color-blue { background: #0047AB; }
+        .color-white { background: white; border: 1px solid #ccc; }
+
+        .footer {
+            background: linear-gradient(135deg, #0047AB 0%, #003380 100%);
+            color: white;
+            padding: 8mm 15mm;
+            text-align: center;
+            font-size: 9pt;
+            border-top: 5px solid #ED1C24;
+        }
+
+        .symbol {
+            font-size: 24pt;
+            text-align: center;
+            margin: 3mm 0;
+        }
+
+        strong {
+            color: #ED1C24;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <h1>🇰🇵 NORDKOREA</h1>
+            <div class="subtitle">Demokratische Volksrepublik Korea</div>
+            <div class="korean">조선민주주의인민공화국</div>
+        </div>
+
+        <div class="content">
+            <!-- Grundlegende Fakten -->
+            <div class="section">
+                <h2>📊 Grundlegende Fakten</h2>
+                <div class="facts-grid">
+                    <div class="fact-item">
+                        <div class="fact-label">Hauptstadt</div>
+                        <div class="fact-value">Pjöngjang (평양)</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Bevölkerung</div>
+                        <div class="fact-value">ca. 26 Millionen</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Fläche</div>
+                        <div class="fact-value">120.540 km²</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Amtssprache</div>
+                        <div class="fact-value">Koreanisch</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Währung</div>
+                        <div class="fact-value">Won (₩)</div>
+                    </div>
+                    <div class="fact-item">
+                        <div class="fact-label">Gründung</div>
+                        <div class="fact-value">9. September 1948</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>Staatsoberhaupt:</strong> Kim Jong-un<br>
+                    <strong>Regierungssystem:</strong> Sozialistische Republik<br>
+                    <strong>Ideologie:</strong> Juche (주체사상)
+                </div>
+
+                <h3>Nationalflagge</h3>
+                <div class="flag-colors">
+                    <div class="color-blue"></div>
+                    <div class="color-red"></div>
+                    <div class="color-white"></div>
+                    <div class="color-red"></div>
+                    <div class="color-blue"></div>
+                </div>
+                <p style="font-size: 8pt; text-align: center;">
+                    ★ Roter Stern: Kommunistische Revolution<br>
+                    Rot: Patriotismus | Blau: Frieden | Weiß: Reinheit
+                </p>
+            </div>
+
+            <!-- Geschichte -->
+            <div class="section">
+                <h2>📜 Geschichte</h2>
+
+                <h3>Teilung Koreas (1945)</h3>
+                <p>Nach dem 2. Weltkrieg wurde Korea am 38. Breitengrad geteilt: Sowjetische Besatzung im Norden, amerikanische im Süden.</p>
+
+                <h3>Gründung (1948)</h3>
+                <p>Am 9. September 1948 wurde die Demokratische Volksrepublik Korea gegründet unter Führung von <strong>Kim Il-sung</strong>.</p>
+
+                <h3>Koreakrieg (1950-1953)</h3>
+                <p>Der Krieg zwischen Nord- und Südkorea endete mit einem Waffenstillstand. Technisch befinden sich beide Länder noch im Kriegszustand.</p>
+
+                <h3>Kim-Dynastie</h3>
+                <ul>
+                    <li><strong>Kim Il-sung</strong> (1948-1994): "Ewiger Präsident", Gründervater</li>
+                    <li><strong>Kim Jong-il</strong> (1994-2011): Sohn, "Lieber Führer"</li>
+                    <li><strong>Kim Jong-un</strong> (seit 2011): Enkel, aktueller Machthaber</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>Juche-Ideologie:</strong> Selbstständigkeit und Unabhängigkeit in Politik, Wirtschaft und Verteidigung. Begründet von Kim Il-sung als nordkoreanische Variante des Sozialismus.
+                </div>
+            </div>
+
+            <!-- Geographie -->
+            <div class="section">
+                <h2>🗺️ Geographie & Klima</h2>
+
+                <h3>Lage</h3>
+                <p>Nordkorea liegt auf der Koreanischen Halbinsel in Ostasien:</p>
+                <ul>
+                    <li><strong>Norden:</strong> Grenze zu China (1.416 km)</li>
+                    <li><strong>Nordosten:</strong> Grenze zu Russland (19 km)</li>
+                    <li><strong>Süden:</strong> Demilitarisierte Zone (DMZ) zu Südkorea</li>
+                    <li><strong>Osten:</strong> Japanisches Meer</li>
+                    <li><strong>Westen:</strong> Gelbes Meer</li>
+                </ul>
+
+                <h3>Topographie</h3>
+                <p>Etwa 80% des Landes sind gebirgig. Höchster Berg: <strong>Paektusan</strong> (2.744 m), ein aktiver Vulkan an der chinesischen Grenze.</p>
+
+                <h3>Klima</h3>
+                <p>Kontinentales Klima mit vier ausgeprägten Jahreszeiten:</p>
+                <ul>
+                    <li>Kalte, trockene Winter (-10°C bis -25°C)</li>
+                    <li>Heiße, feuchte Sommer (bis 30°C)</li>
+                    <li>Monsunzeit im Juli-August</li>
+                </ul>
+
+                <h3>Wichtige Städte</h3>
+                <ul>
+                    <li><strong>Pjöngjang:</strong> 3,2 Mio. Einwohner</li>
+                    <li><strong>Hamhŭng:</strong> 768.000 Einwohner</li>
+                    <li><strong>Chŏngjin:</strong> 668.000 Einwohner</li>
+                    <li><strong>Namp'o:</strong> 366.000 Einwohner</li>
+                </ul>
+            </div>
+
+            <!-- Politik & Regierung -->
+            <div class="section">
+                <h2>⚖️ Politik & Regierung</h2>
+
+                <h3>Regierungsstruktur</h3>
+                <ul>
+                    <li><strong>Oberster Führer:</strong> Kim Jong-un</li>
+                    <li><strong>Parlament:</strong> Oberste Volksversammlung</li>
+                    <li><strong>Partei:</strong> Partei der Arbeit Koreas (PdAK)</li>
+                </ul>
+
+                <h3>Politisches System</h3>
+                <p>Offiziell eine sozialistische Republik, in der Praxis eine <strong>totalitäre Diktatur</strong> mit absoluter Kontrolle durch die Kim-Familie.</p>
+
+                <div class="highlight-box">
+                    <strong>Songbun-System:</strong> Soziales Klassensystem, das die Bevölkerung in drei Hauptgruppen einteilt:
+                    <ul style="margin-top: 2mm;">
+                        <li>Treue Klasse (Kernklasse)</li>
+                        <li>Schwankende Klasse</li>
+                        <li>Feindliche Klasse</li>
+                    </ul>
+                </div>
+
+                <h3>Menschenrechte</h3>
+                <p>Nordkorea gilt als eines der repressivsten Länder der Welt:</p>
+                <ul>
+                    <li>Keine Meinungs- oder Pressefreiheit</li>
+                    <li>Keine Religionsfreiheit</li>
+                    <li>Politische Gefangenenlager (Kwanliso)</li>
+                    <li>Strenge Bewegungseinschränkungen</li>
+                    <li>Staatliche Überwachung aller Lebensbereiche</li>
+                </ul>
+
+                <h3>Militär</h3>
+                <p>Viertgrößte Armee der Welt mit ca. <strong>1,3 Millionen</strong> aktiven Soldaten. Militärdienst ist Pflicht (10 Jahre Männer, 7 Jahre Frauen).</p>
+            </div>
+
+            <!-- Wirtschaft -->
+            <div class="section">
+                <h2>💰 Wirtschaft</h2>
+
+                <h3>Wirtschaftssystem</h3>
+                <p><strong>Zentralverwaltete Planwirtschaft</strong> mit staatlichem Eigentum an Produktionsmitteln.</p>
+
+                <h3>Hauptsektoren</h3>
+                <ul>
+                    <li><strong>Landwirtschaft:</strong> 25% der Bevölkerung</li>
+                    <li><strong>Industrie:</strong> Kohle, Eisen, Textilien</li>
+                    <li><strong>Bergbau:</strong> Seltene Erden, Kohle</li>
+                    <li><strong>Militärindustrie:</strong> Große Ressourcen</li>
+                </ul>
+
+                <h3>Wirtschaftliche Herausforderungen</h3>
+                <ul>
+                    <li>Internationale Sanktionen</li>
+                    <li>Chronische Nahrungsmittelknappheit</li>
+                    <li>Veraltete Infrastruktur</li>
+                    <li>Energieknappheit</li>
+                    <li>Begrenzte Handelsmöglichkeiten</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>BIP pro Kopf:</strong> ca. 1.300 USD (2023)<br>
+                    <strong>Haupthandelspartner:</strong> China (90% des Außenhandels)<br>
+                    <strong>Schwarzmarkt:</strong> Jangmadang (장마당) - inoffizielle Märkte spielen wichtige Rolle
+                </div>
+
+                <h3>Besondere Wirtschaftszonen</h3>
+                <p><strong>Kaesong:</strong> Gemeinsame Industriezone mit Südkorea (zeitweise geschlossen)</p>
+            </div>
+
+            <!-- Kultur & Gesellschaft -->
+            <div class="section">
+                <h2>🎭 Kultur & Gesellschaft</h2>
+
+                <h3>Bildung</h3>
+                <p>Schulpflicht: 12 Jahre. Starke Betonung auf politische Indoktrination und Verehrung der Kim-Familie.</p>
+
+                <h3>Medien & Information</h3>
+                <ul>
+                    <li>Alle Medien staatlich kontrolliert</li>
+                    <li>Kein Internet (nur Intranet "Kwangmyong")</li>
+                    <li>Radio und TV auf Staatsender fixiert</li>
+                    <li>Ausländische Medien streng verboten</li>
+                </ul>
+
+                <h3>Kunst & Musik</h3>
+                <p><strong>Propaganda-Kunst</strong> dominiert: Monumentale Statuen, Wandgemälde und Poster verherrlichen die Führer.</p>
+                <p><strong>Massenspiele (Arirang):</strong> Spektakuläre Choreographien mit bis zu 100.000 Teilnehmern.</p>
+
+                <h3>Sport</h3>
+                <ul>
+                    <li>Fußball sehr populär</li>
+                    <li>Olympiateilnahmen (Sommer & Winter)</li>
+                    <li>Taekwondo nationale Kampfkunst</li>
+                </ul>
+
+                <h3>Religion</h3>
+                <p>Offiziell atheistischer Staat. <strong>Juche-Ideologie</strong> nimmt quasi-religiöse Stellung ein. Personenkult um Kim-Familie.</p>
+
+                <div class="highlight-box">
+                    <strong>Kalender:</strong> Nordkorea verwendet den <strong>Juche-Kalender</strong>, der bei Kim Il-sungs Geburt (1912) beginnt. 2026 = Juche 115.
+                </div>
+            </div>
+
+            <!-- Internationale Beziehungen -->
+            <div class="section">
+                <h2>🌐 Internationale Beziehungen</h2>
+
+                <h3>Atomwaffenprogramm</h3>
+                <p>Nordkorea führte seit 2006 mehrere Atomtests durch und entwickelt Langstreckenraketen. Dies führte zu:</p>
+                <ul>
+                    <li>UN-Sanktionen</li>
+                    <li>Internationale Isolation</li>
+                    <li>Spannungen mit USA und Südkorea</li>
+                </ul>
+
+                <h3>Wichtige Beziehungen</h3>
+                <ul>
+                    <li><strong>China:</strong> Wichtigster Verbündeter und Handelspartner</li>
+                    <li><strong>Russland:</strong> Historischer Verbündeter</li>
+                    <li><strong>Südkorea:</strong> Technischer Kriegszustand</li>
+                    <li><strong>USA:</strong> Keine diplomatischen Beziehungen</li>
+                </ul>
+
+                <h3>Diplomatische Ereignisse</h3>
+                <ul>
+                    <li><strong>2018:</strong> Historisches Treffen Kim-Trump in Singapur</li>
+                    <li><strong>2019:</strong> Zweites Gipfeltreffen in Hanoi (ohne Einigung)</li>
+                    <li><strong>2018:</strong> Inter-koreanische Gipfeltreffen</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>DMZ (Demilitarisierte Zone):</strong> 250 km langer, 4 km breiter Grenzstreifen zu Südkorea - eine der am stärksten militarisierten Grenzen der Welt.
+                </div>
+            </div>
+
+            <!-- Besonderheiten -->
+            <div class="section full-width">
+                <h2>⭐ Besonderheiten & Kuriositäten</h2>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm;">
+                    <div>
+                        <h3>Ryugyong Hotel</h3>
+                        <p>105 Stockwerke hohes Pyramidenhotel in Pjöngjang - seit 1987 im Bau, nie fertiggestellt.</p>
+                    </div>
+
+                    <div>
+                        <h3>Massengymnastik</h3>
+                        <p>Weltweit größte choreographierte Performances mit bis zu 100.000 Teilnehmern.</p>
+                    </div>
+
+                    <div>
+                        <h3>Pjöngjang Metro</h3>
+                        <p>Eines der tiefsten U-Bahn-Systeme (bis 110m tief), dient auch als Atombunker.</p>
+                    </div>
+
+                    <div>
+                        <h3>Haarschnitte</h3>
+                        <p>Nur staatlich genehmigte Frisuren erlaubt (28 für Männer, 18 für Frauen).</p>
+                    </div>
+
+                    <div>
+                        <h3>Kein Internet</h3>
+                        <p>Nur Eliten haben begrenzten Internetzugang. Bevölkerung nutzt Intranet "Kwangmyong".</p>
+                    </div>
+
+                    <div>
+                        <h3>Kim Il-sung Universität</h3>
+                        <p>Prestigeträchtigste Universität des Landes, Zugang nur für Elite.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 5mm;">
+                    <strong>🎬 Film & Fernsehen:</strong> Kim Jong-il war bekannter Filmfan und ließ 1978 den südkoreanischen Regisseur Shin Sang-ok und dessen Frau entführen, um nordkoreanische Filme zu produzieren.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Hinweis:</strong> Nordkorea ist eines der isoliertesten und restriktivsten Länder der Welt. Informationen sind oft schwer zu verifizieren.</p>
+            <p style="margin-top: 3mm;">Stand: Januar 2026 | Quellen: UN, Human Rights Watch, verschiedene Nachrichtenagenturen</p>
+        </div>
+    </div>
+</body>
+</html>
