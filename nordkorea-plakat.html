@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nordkorea - Demokratische Volksrepublik Korea</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+
         @page {
             size: A3;
             margin: 0;
@@ -19,470 +21,769 @@
         body {
             width: 297mm;
             height: 420mm;
-            font-family: 'Arial', 'Helvetica', sans-serif;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-            padding: 15mm;
+            font-family: 'Montserrat', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 0;
             color: #333;
+            overflow: hidden;
         }
 
         .poster {
             width: 100%;
             height: 100%;
-            background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #ED1C24 0%, #C41E3A 100%);
-            color: white;
-            padding: 20mm 15mm;
-            text-align: center;
-            border-bottom: 8px solid #0047AB;
-        }
-
-        .header h1 {
-            font-size: 48pt;
-            font-weight: bold;
-            margin-bottom: 8mm;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            letter-spacing: 2px;
-        }
-
-        .header .subtitle {
-            font-size: 20pt;
-            font-weight: 300;
-            margin-bottom: 3mm;
-        }
-
-        .header .korean {
-            font-size: 24pt;
-            font-weight: bold;
-            margin-top: 3mm;
-        }
-
-        .content {
-            flex: 1;
-            padding: 12mm 15mm;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10mm;
+            background: linear-gradient(165deg, #ffffff 0%, #f5f5f5 50%, #e8e8e8 100%);
+            position: relative;
             overflow: hidden;
         }
 
-        .section {
-            background: #f8f9fa;
-            border-left: 5px solid #ED1C24;
-            padding: 8mm;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* Decorative diagonal stripes */
+        .stripe {
+            position: absolute;
+            width: 150%;
+            height: 120px;
+            transform: rotate(-15deg);
+            transform-origin: center;
         }
 
-        .section h2 {
-            color: #ED1C24;
+        .stripe-1 {
+            background: linear-gradient(90deg, #ED1C24 0%, #C41E3A 100%);
+            top: -30px;
+            left: -20%;
+            opacity: 0.95;
+            box-shadow: 0 10px 40px rgba(237, 28, 36, 0.3);
+        }
+
+        .stripe-2 {
+            background: linear-gradient(90deg, #0047AB 0%, #003380 100%);
+            top: 80px;
+            left: -20%;
+            height: 60px;
+            opacity: 0.9;
+        }
+
+        .stripe-accent {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #ED1C24 0%, transparent 70%);
+            bottom: -50px;
+            right: -50px;
+            transform: rotate(25deg);
+            opacity: 0.15;
+        }
+
+        /* Header with diagonal cut */
+        .header {
+            position: relative;
+            padding: 40mm 15mm 25mm 15mm;
+            z-index: 10;
+        }
+
+        .header h1 {
+            font-size: 72pt;
+            font-weight: 900;
+            color: white;
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+            letter-spacing: -2px;
+            line-height: 0.9;
+            margin-bottom: 8mm;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .flag-emoji {
+            font-size: 64pt;
+            display: inline-block;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .header .subtitle {
             font-size: 18pt;
+            font-weight: 300;
+            color: white;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5mm;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .korean {
+            font-size: 28pt;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Content area with dynamic layout */
+        .content {
+            padding: 0 15mm 15mm 15mm;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 8mm;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Card styles with diagonal elements */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 8mm;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ED1C24 0%, transparent 70%);
+            opacity: 0.1;
+            transform: rotate(15deg) translate(30px, -30px);
+        }
+
+        .card-large {
+            grid-column: span 2;
+        }
+
+        .card-tall {
+            grid-row: span 2;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
             margin-bottom: 5mm;
             padding-bottom: 3mm;
-            border-bottom: 2px solid #0047AB;
+            border-bottom: 3px solid #ED1C24;
+            position: relative;
         }
 
-        .section h3 {
+        .card-icon {
+            font-size: 32pt;
+            margin-right: 3mm;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .card h2 {
+            font-size: 16pt;
+            font-weight: 700;
+            color: #ED1C24;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card h3 {
+            font-size: 11pt;
+            font-weight: 700;
             color: #0047AB;
-            font-size: 14pt;
             margin-top: 4mm;
             margin-bottom: 2mm;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .section p, .section ul {
-            font-size: 10pt;
+        .card p {
+            font-size: 9pt;
             line-height: 1.6;
             margin-bottom: 3mm;
+            font-weight: 400;
         }
 
-        .section ul {
-            list-style-position: inside;
-            padding-left: 3mm;
+        .card ul {
+            font-size: 9pt;
+            line-height: 1.7;
+            list-style: none;
+            padding-left: 0;
         }
 
-        .section li {
+        .card li {
             margin-bottom: 2mm;
+            padding-left: 5mm;
+            position: relative;
         }
 
-        .highlight-box {
-            background: #fff;
-            border: 2px solid #ED1C24;
-            padding: 4mm;
+        .card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #ED1C24;
+            font-weight: bold;
+        }
+
+        /* Info boxes with diagonal design */
+        .info-box {
+            background: linear-gradient(135deg, #ED1C24 0%, #C41E3A 100%);
+            color: white;
+            padding: 5mm;
+            border-radius: 8px;
             margin: 3mm 0;
-            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(237, 28, 36, 0.3);
         }
 
+        .info-box::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+        }
+
+        .info-box strong {
+            color: #FFD700;
+            font-weight: 700;
+        }
+
+        .info-box p {
+            position: relative;
+            z-index: 1;
+            font-size: 9pt;
+            margin: 0;
+        }
+
+        /* Fact grid with visual elements */
         .facts-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3mm;
-            margin-top: 3mm;
+            margin: 3mm 0;
         }
 
         .fact-item {
-            background: white;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 3mm;
-            border-radius: 3px;
-            border-left: 3px solid #0047AB;
+            border-radius: 6px;
+            border-left: 4px solid #0047AB;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        .fact-item:hover {
+            transform: translateX(3px);
         }
 
         .fact-label {
-            font-weight: bold;
+            font-weight: 700;
             color: #ED1C24;
-            font-size: 9pt;
+            font-size: 8pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1mm;
         }
 
         .fact-value {
             color: #333;
             font-size: 10pt;
-            margin-top: 1mm;
+            font-weight: 600;
         }
 
-        .flag-colors {
-            display: flex;
-            height: 8mm;
-            margin: 3mm 0;
-            border-radius: 3px;
+        /* Visual star decoration */
+        .star-accent {
+            position: absolute;
+            top: 10mm;
+            right: 15mm;
+            font-size: 120pt;
+            color: rgba(237, 28, 36, 0.08);
+            transform: rotate(-15deg);
+            z-index: 1;
+        }
+
+        /* Kim dynasty timeline */
+        .timeline {
+            position: relative;
+            padding-left: 8mm;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 2mm;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #ED1C24 0%, #0047AB 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4mm;
+            padding-left: 0;
+        }
+
+        .timeline-item::before {
+            content: '●';
+            position: absolute;
+            left: -6.5mm;
+            color: #ED1C24;
+            font-size: 14pt;
+            background: white;
+        }
+
+        /* Flag representation */
+        .flag-visual {
+            height: 15mm;
+            border-radius: 6px;
             overflow: hidden;
-        }
-
-        .flag-colors div {
-            flex: 1;
-        }
-
-        .color-red { background: #ED1C24; }
-        .color-blue { background: #0047AB; }
-        .color-white { background: white; border: 1px solid #ccc; }
-
-        .footer {
-            background: linear-gradient(135deg, #0047AB 0%, #003380 100%);
-            color: white;
-            padding: 8mm 15mm;
-            text-align: center;
-            font-size: 9pt;
-            border-top: 5px solid #ED1C24;
-        }
-
-        .symbol {
-            font-size: 24pt;
-            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             margin: 3mm 0;
+            display: grid;
+            grid-template-rows: 1fr 3fr 1fr 3fr 1fr;
+            position: relative;
         }
 
+        .flag-blue { background: #0047AB; }
+        .flag-red {
+            background: #ED1C24;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flag-white {
+            background: white;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .flag-star {
+            color: white;
+            font-size: 24pt;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Map visualization with CSS */
+        .map-visual {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            height: 40mm;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            margin: 3mm 0;
+            border: 2px solid #0047AB;
+        }
+
+        .map-pin {
+            position: absolute;
+            width: 8mm;
+            height: 8mm;
+            background: #ED1C24;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .map-pin::after {
+            content: '';
+            position: absolute;
+            width: 4mm;
+            height: 4mm;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pin-pyongyang {
+            top: 45%;
+            left: 50%;
+        }
+
+        .map-label {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2mm;
+            border-radius: 4px;
+            font-size: 8pt;
+            font-weight: 700;
+            color: #ED1C24;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .label-china {
+            top: 15%;
+            left: 15%;
+            transform: rotate(-5deg);
+        }
+
+        .label-russia {
+            top: 10%;
+            right: 25%;
+            transform: rotate(3deg);
+        }
+
+        .label-dmz {
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+        }
+
+        /* Nuclear symbol */
+        .nuclear-symbol {
+            text-align: center;
+            font-size: 48pt;
+            margin: 3mm 0;
+            opacity: 0.3;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Footer with diagonal design */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(165deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 6mm 15mm;
+            font-size: 8pt;
+            text-align: center;
+            line-height: 1.6;
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+            padding-top: 10mm;
+        }
+
+        .footer strong {
+            color: #ED1C24;
+            font-weight: 700;
+        }
+
+        /* Print optimization */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .poster {
+                box-shadow: none;
+            }
+        }
+
+        /* Highlight text */
         strong {
             color: #ED1C24;
+            font-weight: 700;
         }
 
-        .full-width {
-            grid-column: 1 / -1;
+        .blue-text {
+            color: #0047AB;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
     <div class="poster">
+        <!-- Decorative elements -->
+        <div class="stripe stripe-1"></div>
+        <div class="stripe stripe-2"></div>
+        <div class="star-accent">★</div>
+        <div class="stripe-accent"></div>
+
+        <!-- Header -->
         <div class="header">
-            <h1>🇰🇵 NORDKOREA</h1>
+            <div class="flag-emoji">🇰🇵</div>
+            <h1>NORDKOREA</h1>
             <div class="subtitle">Demokratische Volksrepublik Korea</div>
             <div class="korean">조선민주주의인민공화국</div>
         </div>
 
+        <!-- Content Grid -->
         <div class="content">
-            <!-- Grundlegende Fakten -->
-            <div class="section">
-                <h2>📊 Grundlegende Fakten</h2>
+            <!-- Card 1: Basic Facts -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <h2>Fakten</h2>
+                </div>
                 <div class="facts-grid">
                     <div class="fact-item">
                         <div class="fact-label">Hauptstadt</div>
-                        <div class="fact-value">Pjöngjang (평양)</div>
+                        <div class="fact-value">Pjöngjang</div>
                     </div>
                     <div class="fact-item">
-                        <div class="fact-label">Bevölkerung</div>
-                        <div class="fact-value">ca. 26 Millionen</div>
+                        <div class="fact-label">Einwohner</div>
+                        <div class="fact-value">26 Mio.</div>
                     </div>
                     <div class="fact-item">
                         <div class="fact-label">Fläche</div>
                         <div class="fact-value">120.540 km²</div>
                     </div>
                     <div class="fact-item">
-                        <div class="fact-label">Amtssprache</div>
-                        <div class="fact-value">Koreanisch</div>
-                    </div>
-                    <div class="fact-item">
-                        <div class="fact-label">Währung</div>
-                        <div class="fact-value">Won (₩)</div>
-                    </div>
-                    <div class="fact-item">
                         <div class="fact-label">Gründung</div>
-                        <div class="fact-value">9. September 1948</div>
+                        <div class="fact-value">9.9.1948</div>
                     </div>
                 </div>
 
-                <div class="highlight-box">
-                    <strong>Staatsoberhaupt:</strong> Kim Jong-un<br>
-                    <strong>Regierungssystem:</strong> Sozialistische Republik<br>
-                    <strong>Ideologie:</strong> Juche (주체사상)
+                <div class="info-box">
+                    <p><strong>Führer:</strong> Kim Jong-un</p>
+                    <p><strong>Ideologie:</strong> Juche (주체)</p>
                 </div>
 
                 <h3>Nationalflagge</h3>
-                <div class="flag-colors">
-                    <div class="color-blue"></div>
-                    <div class="color-red"></div>
-                    <div class="color-white"></div>
-                    <div class="color-red"></div>
-                    <div class="color-blue"></div>
-                </div>
-                <p style="font-size: 8pt; text-align: center;">
-                    ★ Roter Stern: Kommunistische Revolution<br>
-                    Rot: Patriotismus | Blau: Frieden | Weiß: Reinheit
-                </p>
-            </div>
-
-            <!-- Geschichte -->
-            <div class="section">
-                <h2>📜 Geschichte</h2>
-
-                <h3>Teilung Koreas (1945)</h3>
-                <p>Nach dem 2. Weltkrieg wurde Korea am 38. Breitengrad geteilt: Sowjetische Besatzung im Norden, amerikanische im Süden.</p>
-
-                <h3>Gründung (1948)</h3>
-                <p>Am 9. September 1948 wurde die Demokratische Volksrepublik Korea gegründet unter Führung von <strong>Kim Il-sung</strong>.</p>
-
-                <h3>Koreakrieg (1950-1953)</h3>
-                <p>Der Krieg zwischen Nord- und Südkorea endete mit einem Waffenstillstand. Technisch befinden sich beide Länder noch im Kriegszustand.</p>
-
-                <h3>Kim-Dynastie</h3>
-                <ul>
-                    <li><strong>Kim Il-sung</strong> (1948-1994): "Ewiger Präsident", Gründervater</li>
-                    <li><strong>Kim Jong-il</strong> (1994-2011): Sohn, "Lieber Führer"</li>
-                    <li><strong>Kim Jong-un</strong> (seit 2011): Enkel, aktueller Machthaber</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <strong>Juche-Ideologie:</strong> Selbstständigkeit und Unabhängigkeit in Politik, Wirtschaft und Verteidigung. Begründet von Kim Il-sung als nordkoreanische Variante des Sozialismus.
+                <div class="flag-visual">
+                    <div class="flag-blue"></div>
+                    <div class="flag-red">
+                        <div class="flag-star">★</div>
+                    </div>
+                    <div class="flag-white"></div>
+                    <div class="flag-red"></div>
+                    <div class="flag-blue"></div>
                 </div>
             </div>
 
-            <!-- Geographie -->
-            <div class="section">
-                <h2>🗺️ Geographie & Klima</h2>
+            <!-- Card 2: Geography -->
+            <div class="card card-tall">
+                <div class="card-header">
+                    <div class="card-icon">🗺️</div>
+                    <h2>Geographie</h2>
+                </div>
+
+                <div class="map-visual">
+                    <div class="map-pin pin-pyongyang"></div>
+                    <div class="map-label label-china">🇨🇳 CHINA</div>
+                    <div class="map-label label-russia">🇷🇺 RUSSLAND</div>
+                    <div class="map-label label-dmz">⚠️ DMZ</div>
+                </div>
 
                 <h3>Lage</h3>
-                <p>Nordkorea liegt auf der Koreanischen Halbinsel in Ostasien:</p>
                 <ul>
-                    <li><strong>Norden:</strong> Grenze zu China (1.416 km)</li>
-                    <li><strong>Nordosten:</strong> Grenze zu Russland (19 km)</li>
-                    <li><strong>Süden:</strong> Demilitarisierte Zone (DMZ) zu Südkorea</li>
-                    <li><strong>Osten:</strong> Japanisches Meer</li>
-                    <li><strong>Westen:</strong> Gelbes Meer</li>
+                    <li><strong>Norden:</strong> China (1.416 km)</li>
+                    <li><strong>Nordosten:</strong> Russland (19 km)</li>
+                    <li><strong>Süden:</strong> DMZ zu Südkorea</li>
+                    <li><strong>Küsten:</strong> Japanisches & Gelbes Meer</li>
                 </ul>
 
                 <h3>Topographie</h3>
-                <p>Etwa 80% des Landes sind gebirgig. Höchster Berg: <strong>Paektusan</strong> (2.744 m), ein aktiver Vulkan an der chinesischen Grenze.</p>
+                <p><strong>80% gebirgig</strong> - Höchster Berg: Paektusan (2.744 m), aktiver Vulkan an chinesischer Grenze.</p>
 
                 <h3>Klima</h3>
-                <p>Kontinentales Klima mit vier ausgeprägten Jahreszeiten:</p>
-                <ul>
-                    <li>Kalte, trockene Winter (-10°C bis -25°C)</li>
-                    <li>Heiße, feuchte Sommer (bis 30°C)</li>
-                    <li>Monsunzeit im Juli-August</li>
-                </ul>
-
-                <h3>Wichtige Städte</h3>
-                <ul>
-                    <li><strong>Pjöngjang:</strong> 3,2 Mio. Einwohner</li>
-                    <li><strong>Hamhŭng:</strong> 768.000 Einwohner</li>
-                    <li><strong>Chŏngjin:</strong> 668.000 Einwohner</li>
-                    <li><strong>Namp'o:</strong> 366.000 Einwohner</li>
-                </ul>
+                <p>Kontinental mit vier Jahreszeiten. Winter bis <strong>-25°C</strong>, Sommer bis <strong>30°C</strong>.</p>
             </div>
 
-            <!-- Politik & Regierung -->
-            <div class="section">
-                <h2>⚖️ Politik & Regierung</h2>
-
-                <h3>Regierungsstruktur</h3>
-                <ul>
-                    <li><strong>Oberster Führer:</strong> Kim Jong-un</li>
-                    <li><strong>Parlament:</strong> Oberste Volksversammlung</li>
-                    <li><strong>Partei:</strong> Partei der Arbeit Koreas (PdAK)</li>
-                </ul>
-
-                <h3>Politisches System</h3>
-                <p>Offiziell eine sozialistische Republik, in der Praxis eine <strong>totalitäre Diktatur</strong> mit absoluter Kontrolle durch die Kim-Familie.</p>
-
-                <div class="highlight-box">
-                    <strong>Songbun-System:</strong> Soziales Klassensystem, das die Bevölkerung in drei Hauptgruppen einteilt:
-                    <ul style="margin-top: 2mm;">
-                        <li>Treue Klasse (Kernklasse)</li>
-                        <li>Schwankende Klasse</li>
-                        <li>Feindliche Klasse</li>
-                    </ul>
+            <!-- Card 3: Kim Dynasty -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">👑</div>
+                    <h2>Kim-Dynastie</h2>
                 </div>
 
-                <h3>Menschenrechte</h3>
-                <p>Nordkorea gilt als eines der repressivsten Länder der Welt:</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong class="blue-text">Kim Il-sung</strong><br>
+                        1948-1994<br>
+                        "Ewiger Präsident"
+                    </div>
+                    <div class="timeline-item">
+                        <strong class="blue-text">Kim Jong-il</strong><br>
+                        1994-2011<br>
+                        "Lieber Führer"
+                    </div>
+                    <div class="timeline-item">
+                        <strong class="blue-text">Kim Jong-un</strong><br>
+                        seit 2011<br>
+                        Aktueller Führer
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <p><strong>Juche-Kalender:</strong> Beginnt 1912 (Kim Il-sungs Geburt). 2026 = Juche 115</p>
+                </div>
+            </div>
+
+            <!-- Card 4: History -->
+            <div class="card card-large">
+                <div class="card-header">
+                    <div class="card-icon">📜</div>
+                    <h2>Geschichte</h2>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5mm;">
+                    <div>
+                        <h3>1945: Teilung</h3>
+                        <p>Korea wurde am <strong>38. Breitengrad</strong> geteilt: Sowjetische Besatzung im Norden, amerikanische im Süden.</p>
+
+                        <h3>1948: Gründung</h3>
+                        <p>Am 9. September wurde die DVRK unter <strong>Kim Il-sung</strong> gegründet.</p>
+                    </div>
+
+                    <div>
+                        <h3>1950-1953: Koreakrieg</h3>
+                        <p>Krieg endete mit Waffenstillstand. Technisch noch immer im <strong>Kriegszustand</strong>.</p>
+
+                        <h3>Juche-Ideologie</h3>
+                        <p>Selbstständigkeit in Politik, Wirtschaft und Verteidigung. Nordkoreanische Variante des Sozialismus.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Politics -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">⚖️</div>
+                    <h2>Politik</h2>
+                </div>
+
+                <h3>System</h3>
+                <p>Offiziell sozialistische Republik, praktisch <strong>totalitäre Diktatur</strong>.</p>
+
+                <h3>Songbun-System</h3>
                 <ul>
-                    <li>Keine Meinungs- oder Pressefreiheit</li>
-                    <li>Keine Religionsfreiheit</li>
-                    <li>Politische Gefangenenlager (Kwanliso)</li>
-                    <li>Strenge Bewegungseinschränkungen</li>
-                    <li>Staatliche Überwachung aller Lebensbereiche</li>
+                    <li>Treue Klasse</li>
+                    <li>Schwankende Klasse</li>
+                    <li>Feindliche Klasse</li>
                 </ul>
 
                 <h3>Militär</h3>
-                <p>Viertgrößte Armee der Welt mit ca. <strong>1,3 Millionen</strong> aktiven Soldaten. Militärdienst ist Pflicht (10 Jahre Männer, 7 Jahre Frauen).</p>
-            </div>
+                <p><strong>1,3 Mio.</strong> Soldaten - Viertgrößte Armee weltweit.</p>
 
-            <!-- Wirtschaft -->
-            <div class="section">
-                <h2>💰 Wirtschaft</h2>
-
-                <h3>Wirtschaftssystem</h3>
-                <p><strong>Zentralverwaltete Planwirtschaft</strong> mit staatlichem Eigentum an Produktionsmitteln.</p>
-
-                <h3>Hauptsektoren</h3>
-                <ul>
-                    <li><strong>Landwirtschaft:</strong> 25% der Bevölkerung</li>
-                    <li><strong>Industrie:</strong> Kohle, Eisen, Textilien</li>
-                    <li><strong>Bergbau:</strong> Seltene Erden, Kohle</li>
-                    <li><strong>Militärindustrie:</strong> Große Ressourcen</li>
-                </ul>
-
-                <h3>Wirtschaftliche Herausforderungen</h3>
-                <ul>
-                    <li>Internationale Sanktionen</li>
-                    <li>Chronische Nahrungsmittelknappheit</li>
-                    <li>Veraltete Infrastruktur</li>
-                    <li>Energieknappheit</li>
-                    <li>Begrenzte Handelsmöglichkeiten</li>
-                </ul>
-
-                <div class="highlight-box">
-                    <strong>BIP pro Kopf:</strong> ca. 1.300 USD (2023)<br>
-                    <strong>Haupthandelspartner:</strong> China (90% des Außenhandels)<br>
-                    <strong>Schwarzmarkt:</strong> Jangmadang (장마당) - inoffizielle Märkte spielen wichtige Rolle
-                </div>
-
-                <h3>Besondere Wirtschaftszonen</h3>
-                <p><strong>Kaesong:</strong> Gemeinsame Industriezone mit Südkorea (zeitweise geschlossen)</p>
-            </div>
-
-            <!-- Kultur & Gesellschaft -->
-            <div class="section">
-                <h2>🎭 Kultur & Gesellschaft</h2>
-
-                <h3>Bildung</h3>
-                <p>Schulpflicht: 12 Jahre. Starke Betonung auf politische Indoktrination und Verehrung der Kim-Familie.</p>
-
-                <h3>Medien & Information</h3>
-                <ul>
-                    <li>Alle Medien staatlich kontrolliert</li>
-                    <li>Kein Internet (nur Intranet "Kwangmyong")</li>
-                    <li>Radio und TV auf Staatsender fixiert</li>
-                    <li>Ausländische Medien streng verboten</li>
-                </ul>
-
-                <h3>Kunst & Musik</h3>
-                <p><strong>Propaganda-Kunst</strong> dominiert: Monumentale Statuen, Wandgemälde und Poster verherrlichen die Führer.</p>
-                <p><strong>Massenspiele (Arirang):</strong> Spektakuläre Choreographien mit bis zu 100.000 Teilnehmern.</p>
-
-                <h3>Sport</h3>
-                <ul>
-                    <li>Fußball sehr populär</li>
-                    <li>Olympiateilnahmen (Sommer & Winter)</li>
-                    <li>Taekwondo nationale Kampfkunst</li>
-                </ul>
-
-                <h3>Religion</h3>
-                <p>Offiziell atheistischer Staat. <strong>Juche-Ideologie</strong> nimmt quasi-religiöse Stellung ein. Personenkult um Kim-Familie.</p>
-
-                <div class="highlight-box">
-                    <strong>Kalender:</strong> Nordkorea verwendet den <strong>Juche-Kalender</strong>, der bei Kim Il-sungs Geburt (1912) beginnt. 2026 = Juche 115.
+                <div class="info-box">
+                    <p>Militärdienst Pflicht: 10 Jahre (Männer), 7 Jahre (Frauen)</p>
                 </div>
             </div>
 
-            <!-- Internationale Beziehungen -->
-            <div class="section">
-                <h2>🌐 Internationale Beziehungen</h2>
+            <!-- Card 6: Nuclear Program -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">☢️</div>
+                    <h2>Atomprogramm</h2>
+                </div>
 
-                <h3>Atomwaffenprogramm</h3>
-                <p>Nordkorea führte seit 2006 mehrere Atomtests durch und entwickelt Langstreckenraketen. Dies führte zu:</p>
+                <div class="nuclear-symbol">☢️</div>
+
+                <p>Mehrere Atomtests seit <strong>2006</strong>. Entwicklung von Langstreckenraketen.</p>
+
+                <h3>Folgen</h3>
                 <ul>
                     <li>UN-Sanktionen</li>
                     <li>Internationale Isolation</li>
-                    <li>Spannungen mit USA und Südkorea</li>
+                    <li>Spannungen mit USA</li>
                 </ul>
 
-                <h3>Wichtige Beziehungen</h3>
+                <h3>DMZ</h3>
+                <p><strong>250 km lang, 4 km breit</strong> - eine der am stärksten militarisierten Grenzen der Welt.</p>
+            </div>
+
+            <!-- Card 7: Economy -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">💰</div>
+                    <h2>Wirtschaft</h2>
+                </div>
+
+                <h3>System</h3>
+                <p><strong>Zentralverwaltete Planwirtschaft</strong> mit staatlichem Eigentum.</p>
+
+                <h3>Sektoren</h3>
                 <ul>
-                    <li><strong>China:</strong> Wichtigster Verbündeter und Handelspartner</li>
-                    <li><strong>Russland:</strong> Historischer Verbündeter</li>
-                    <li><strong>Südkorea:</strong> Technischer Kriegszustand</li>
-                    <li><strong>USA:</strong> Keine diplomatischen Beziehungen</li>
+                    <li>Landwirtschaft (25%)</li>
+                    <li>Bergbau (Seltene Erden)</li>
+                    <li>Militärindustrie</li>
                 </ul>
 
-                <h3>Diplomatische Ereignisse</h3>
+                <div class="info-box">
+                    <p><strong>BIP/Kopf:</strong> ~1.300 USD</p>
+                    <p><strong>Handel:</strong> 90% mit China</p>
+                </div>
+
+                <h3>Herausforderungen</h3>
                 <ul>
-                    <li><strong>2018:</strong> Historisches Treffen Kim-Trump in Singapur</li>
-                    <li><strong>2019:</strong> Zweites Gipfeltreffen in Hanoi (ohne Einigung)</li>
-                    <li><strong>2018:</strong> Inter-koreanische Gipfeltreffen</li>
+                    <li>Internationale Sanktionen</li>
+                    <li>Nahrungsmittelknappheit</li>
+                    <li>Energieknappheit</li>
                 </ul>
+            </div>
 
-                <div class="highlight-box">
-                    <strong>DMZ (Demilitarisierte Zone):</strong> 250 km langer, 4 km breiter Grenzstreifen zu Südkorea - eine der am stärksten militarisierten Grenzen der Welt.
+            <!-- Card 8: Culture & Society -->
+            <div class="card card-large">
+                <div class="card-header">
+                    <div class="card-icon">🎭</div>
+                    <h2>Kultur & Gesellschaft</h2>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm;">
+                    <div>
+                        <h3>Medien 📺</h3>
+                        <ul>
+                            <li>Alle Medien staatlich</li>
+                            <li>Kein Internet</li>
+                            <li>Nur Intranet "Kwangmyong"</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Bildung 📚</h3>
+                        <ul>
+                            <li>12 Jahre Schulpflicht</li>
+                            <li>Politische Indoktrination</li>
+                            <li>Kim-Verehrung</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Kunst 🎨</h3>
+                        <ul>
+                            <li>Propaganda-Kunst</li>
+                            <li>Massenspiele Arirang</li>
+                            <li>Bis 100.000 Teilnehmer</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top: 4mm;">
+                    <p><strong>Menschenrechte:</strong> Keine Meinungs-, Press- oder Religionsfreiheit. Politische Gefangenenlager. Staatliche Totalüberwachung.</p>
                 </div>
             </div>
 
-            <!-- Besonderheiten -->
-            <div class="section full-width">
-                <h2>⭐ Besonderheiten & Kuriositäten</h2>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm;">
-                    <div>
-                        <h3>Ryugyong Hotel</h3>
-                        <p>105 Stockwerke hohes Pyramidenhotel in Pjöngjang - seit 1987 im Bau, nie fertiggestellt.</p>
-                    </div>
-
-                    <div>
-                        <h3>Massengymnastik</h3>
-                        <p>Weltweit größte choreographierte Performances mit bis zu 100.000 Teilnehmern.</p>
-                    </div>
-
-                    <div>
-                        <h3>Pjöngjang Metro</h3>
-                        <p>Eines der tiefsten U-Bahn-Systeme (bis 110m tief), dient auch als Atombunker.</p>
-                    </div>
-
-                    <div>
-                        <h3>Haarschnitte</h3>
-                        <p>Nur staatlich genehmigte Frisuren erlaubt (28 für Männer, 18 für Frauen).</p>
-                    </div>
-
-                    <div>
-                        <h3>Kein Internet</h3>
-                        <p>Nur Eliten haben begrenzten Internetzugang. Bevölkerung nutzt Intranet "Kwangmyong".</p>
-                    </div>
-
-                    <div>
-                        <h3>Kim Il-sung Universität</h3>
-                        <p>Prestigeträchtigste Universität des Landes, Zugang nur für Elite.</p>
-                    </div>
+            <!-- Card 9: Curiosities -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">⭐</div>
+                    <h2>Besonderheiten</h2>
                 </div>
 
-                <div class="highlight-box" style="margin-top: 5mm;">
-                    <strong>🎬 Film & Fernsehen:</strong> Kim Jong-il war bekannter Filmfan und ließ 1978 den südkoreanischen Regisseur Shin Sang-ok und dessen Frau entführen, um nordkoreanische Filme zu produzieren.
-                </div>
+                <h3>🏢 Ryugyong Hotel</h3>
+                <p>105 Stockwerke, seit 1987 im Bau, nie fertiggestellt.</p>
+
+                <h3>🚇 Pjöngjang Metro</h3>
+                <p>Bis 110m tief - dient als Atombunker.</p>
+
+                <h3>✂️ Frisuren</h3>
+                <p>Nur staatlich genehmigte Frisuren: 28 für Männer, 18 für Frauen.</p>
+
+                <h3>🎬 Kim Jong-il</h3>
+                <p>Ließ 1978 südkoreanischen Regisseur entführen für Filmproduktion.</p>
             </div>
         </div>
 
+        <!-- Footer -->
         <div class="footer">
-            <p><strong>Hinweis:</strong> Nordkorea ist eines der isoliertesten und restriktivsten Länder der Welt. Informationen sind oft schwer zu verifizieren.</p>
-            <p style="margin-top: 3mm;">Stand: Januar 2026 | Quellen: UN, Human Rights Watch, verschiedene Nachrichtenagenturen</p>
+            <p><strong>⚠️ Hinweis:</strong> Nordkorea ist eines der isoliertesten und restriktivsten Länder der Welt. Informationen oft schwer zu verifizieren.</p>
+            <p style="margin-top: 2mm;">Stand: Januar 2026 | Quellen: UN, Human Rights Watch, diverse Nachrichtenagenturen</p>
         </div>
     </div>
 </body>
